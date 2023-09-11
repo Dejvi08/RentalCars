@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<ReviewEntity, Long> {
-    List<ReviewEntity>findByCarEntity(Long carId);
+    List<ReviewEntity>findByCarEntity(CarEntity carEntity);
 }

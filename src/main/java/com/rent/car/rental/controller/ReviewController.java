@@ -17,12 +17,13 @@ public class ReviewController {
 
     @PostMapping("/cars/{carId}/review_entity")
     public ResponseEntity<ReviewDto> createReview(@PathVariable("carId") long carId, @RequestBody ReviewDto reviewDto){
-        return new ResponseEntity<>(reviewService.createComment(carId, reviewDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(reviewService.createReview(carId, reviewDto), HttpStatus.CREATED);
 
     }
     @GetMapping("/cars/{carId}/review_entity")
     public List<ReviewDto> getReviewsByPostId(@PathVariable(value = "carId") Long carId){
         return reviewService.getReviewsByCarId(carId);
     }
+
 
 }

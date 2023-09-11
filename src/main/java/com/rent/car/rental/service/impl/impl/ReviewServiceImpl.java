@@ -18,15 +18,16 @@ public class ReviewServiceImpl {
 
 
     private ReviewRepository reviewRepository;
+
     private CarRepository carRepository;
-@Autowired
+    @Autowired
     public ReviewServiceImpl(ReviewRepository reviewRepository, CarRepository carRepository) {
         this.reviewRepository = reviewRepository;
         this.carRepository = carRepository;
     }
 
 
-    public ReviewDto createComment(long carId, ReviewDto reviewDto) {
+    public ReviewDto createReview(long carId, ReviewDto reviewDto) {
         ReviewEntity review = Convert.mapToEntity(reviewDto);
         CarEntity carEntity = carRepository.findById(carId).orElseThrow(()->new ResourceNotFoundExeption("CarEntity", "id",
                 carId));
@@ -35,7 +36,7 @@ public class ReviewServiceImpl {
         return Convert.mapToDto(newReview);
     }
     public List<ReviewDto> getReviewsByCarId(Long carId) {
-        List<ReviewEntity> reviews = reviewRepository.findByCarEntity(carId);
+        List<ReviewEntity> reviews = reviewRepository.findByCarEntity(new CarEntity(carId));
         return reviews.stream().map(review -> Convert.mapToDto(review)).collect(Collectors.toList());
     }
 

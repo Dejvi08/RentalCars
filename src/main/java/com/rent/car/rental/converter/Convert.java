@@ -1,12 +1,20 @@
 package com.rent.car.rental.converter;
 
 import com.rent.car.rental.dto.CarDto;
+import com.rent.car.rental.dto.PersonDto;
 import com.rent.car.rental.dto.ResponseDto;
 import com.rent.car.rental.dto.ReviewDto;
 import com.rent.car.rental.entity.CarEntity;
+import com.rent.car.rental.entity.PersonEntity;
 import com.rent.car.rental.entity.ReviewEntity;
+import com.rent.car.rental.service.impl.impl.PersonServiceImpl;
+import org.modelmapper.ModelMapper;
 
 public class Convert {
+
+
+
+
 
     public static ResponseDto mapToDto(CarEntity carEntity) {
         ResponseDto responseDto = new ResponseDto();
@@ -52,6 +60,12 @@ public class Convert {
 
         return reviewDto;
     }
+//    public static PersonEntity mapToEntity(PersonDto personDto){
+//        PersonEntity personEntity = mod
+//
+//    }
+
+
 
 
 }
