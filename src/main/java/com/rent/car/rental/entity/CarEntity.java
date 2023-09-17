@@ -39,6 +39,10 @@ public class CarEntity {
     @OneToMany(mappedBy = "carEntity")
     private Set<ReviewEntity> reviews = new HashSet<>();
 
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private Set<BookingEntity> bookings = new HashSet<>();
+
+
     public CarEntity(Long id) {
         this.id = id;
     }

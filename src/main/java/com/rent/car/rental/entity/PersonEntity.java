@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -28,6 +30,8 @@ public class PersonEntity {
     private String password;
     @OneToOne(mappedBy = "personEntity", cascade = CascadeType.ALL)
     private TokenEntity token;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<BookingEntity> bookings;
 
     public PersonEntity(Long personid) {
         this.id = personid;

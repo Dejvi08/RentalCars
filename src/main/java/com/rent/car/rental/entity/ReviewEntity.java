@@ -3,15 +3,13 @@ package com.rent.car.rental.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 
+@Data
 @Getter
 @Setter
 @AllArgsConstructor
@@ -26,6 +24,7 @@ public class ReviewEntity {
     private String description;
     @Min(value = 1, message = "Ju lutem rate minimal esht 1")
     @Max(value = 5, message = "Ju lutem rate maksimal esht 5")
+
     private int rate;
 
     @CreationTimestamp
@@ -37,4 +36,5 @@ public class ReviewEntity {
     @ManyToOne
     @JoinColumn(name = "car_id", nullable = false)
     private CarEntity carEntity;
+
 }

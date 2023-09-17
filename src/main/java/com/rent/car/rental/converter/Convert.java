@@ -1,9 +1,7 @@
 package com.rent.car.rental.converter;
 
-import com.rent.car.rental.dto.CarDto;
-import com.rent.car.rental.dto.PersonDto;
-import com.rent.car.rental.dto.ResponseDto;
-import com.rent.car.rental.dto.ReviewDto;
+import com.rent.car.rental.dto.*;
+import com.rent.car.rental.entity.BookingEntity;
 import com.rent.car.rental.entity.CarEntity;
 import com.rent.car.rental.entity.PersonEntity;
 import com.rent.car.rental.entity.ReviewEntity;
@@ -60,10 +58,18 @@ public class Convert {
 
         return reviewDto;
     }
-//    public static PersonEntity mapToEntity(PersonDto personDto){
-//        PersonEntity personEntity = mod
-//
-//    }
+    public static BookingDto mapToDto(BookingEntity bookingEntity){
+        BookingDto bookingDto = new BookingDto();
+        bookingDto.setBookingDate(bookingEntity.getBookingDate());
+        bookingDto.setCarModel(bookingEntity.getCarModel());
+        bookingDto.setQuantity(bookingEntity.getQuantity());
+        bookingDto.setFirstName(bookingEntity.getFirstName());
+        bookingDto.setLastName(bookingEntity.getLastName());
+        bookingDto.setId(bookingEntity.getId());
+
+        return bookingDto;
+    }
+
 
 
 
